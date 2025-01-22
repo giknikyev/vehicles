@@ -415,9 +415,9 @@ header {
 
     <script>
         const vehicles = [
-        { name: "Stuttgart Royal Majestic", licenseNumber: "HH GI 79", owner: "Rostyk_gej71", password: "069690", telegramid: "7502438357", registrationDate: "2024-21-01", category: "Dealership", image: "https://i.ibb.co/N1s9s2s/2025-01-21-175042.png" },
-            { name: "Mauntley National GT", licenseNumber: "HH EY 12", owner: "bodja150510", telegramid: "1334371648", registrationDate: "2024-23-01", category: "Dealership", image: "https://i.ibb.co/qsMXhTp/2025-01-21-175312.png" },
-            { name: "Car 3", licenseNumber: "EF9012", owner: "user2", password: "password2", telegramid: "67890", registrationDate: "2024-23-01", category: "Fire department", image: "https://via.placeholder.com/150" },
+        { name: "Stuttgart Royal Majestic", licenseNumber: "HH GI 79", owner: "Rostyk_gej71", password: "069690", telegramid: "7502438357", registrationDate: "21.01.2025", category: "Dealership", image: "https://i.ibb.co/N1s9s2s/2025-01-21-175042.png" },
+            { name: "Mauntley National GT", licenseNumber: "HH EY 12", owner: "bodja150510", telegramid: "1334371648", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/qsMXhTp/2025-01-21-175312.png" },
+            { name: "Car 3", licenseNumber: "EF9012", owner: "user2", password: "password2", telegramid: "67890", registrationDate: "23.01.0000", category: "Fire department", image: "https://via.placeholder.com/150" },
             { name: "Car 4", licenseNumber: "GH3456", owner: "user2", password: "password2", telegramid: "67890", registrationDate: "2024-04-01", category: "Bus Company", image: "https://via.placeholder.com/150" },
             { name: "Car 5", licenseNumber: "IJ7890", owner: "user3", password: "password3", telegramid: "11223", registrationDate: "2024-05-01", category: "Truck Company", image: "https://via.placeholder.com/150" }
         ];
@@ -448,10 +448,10 @@ checkForm.addEventListener('submit', function(event) {
             <div class="vehicle-details">
                 <h3>${vehicle.name}</h3>
                 <img src="${vehicle.image}" alt="${vehicle.name}">
-                <p>Номерний знак: ${vehicle.licenseNumber}</p>
-                <p>Власник: ${vehicle.owner}</p>
-                <p>Telegram: ${vehicle.telegramid}</p>
-                <p>Дата реєстрації: ${vehicle.registrationDate}</p>
+                <p>Номерний знак: <b>${vehicle.licenseNumber}</b></p>
+                <p>Власник: <b>${vehicle.owner}</b></p>
+                <p>Telegram: <b>${vehicle.telegramid}</b></p>
+                <p>Дата реєстрації: <b>${vehicle.registrationDate}</b></p>
             </div>
         `;
         infoWindow.classList.add('active');
