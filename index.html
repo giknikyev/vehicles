@@ -302,6 +302,65 @@ footer {
     color: #ff4d4d;
     font-weight: bold;
 }
+header {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    font-size: 2.0em;
+    box-shadow: 0 3px 6px rgba(0, 255, 234, 0.797);
+    border-bottom: 5px solid #0b0909;
+    background: linear-gradient(45deg, #000000, #302f2f);
+    color: #576974;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+.social-button {
+    background-color: #248779d6; 
+    color: white; 
+    padding: 4px 10px; 
+    border-radius: 4px; 
+    cursor: pointer;
+    font-size: 0.8em; 
+    border: none; 
+    transition: all 0.3s ease;
+    width: auto; 
+    white-space: nowrap; 
+}
+
+.social-button:hover {
+    background-color: #1d6b55; 
+    color: white;
+}
+
+.warning-text {
+    font-size: 1em;
+    color: #ff4d4d;
+    margin-top: 10px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .social-button {
+        padding: 4px 8px; 
+        font-size: 0.7em; 
+    }
+
+    .social-buttons {
+        gap: 3px; 
+    }
+
+    .warning-text {
+        font-size: 1em;
+    }
+}
+
+
 
     </style>
 </head>
@@ -309,8 +368,18 @@ footer {
 
     <header>
         <h1>ТРАНСПОРТНІ ЗАСОБИ</h1>
-        <h3>БАЗА ДАНИХ<br><small>UKRAINE RP</small></br></h3>
+        <h3>БАЗА ДАНИХ<br><small>UKRAINE RP</small></h3>
+        <div class="social-buttons">
+            <button class="social-button" onclick="window.location.href='https://t.me/yourtelegram'">Telegram</button>
+            <button class="social-button" onclick="window.location.href='https://twitter.com/yourtwitter'">Twitter</button>
+            <button class="social-button" onclick="window.location.href='https://yourregistrationlink.com'">Зареєструвати ТЗ</button>
+        </div>
     </header>
+    
+    
+    
+    
+    
 
     <div class="container">
         <section id="check-number">
