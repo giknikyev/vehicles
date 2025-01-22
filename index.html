@@ -7,286 +7,302 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(45deg, #046f74dc, #000000d2);
-            margin: 0;
-            padding: 0;
-            color: #ffffff;
-        }
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(45deg, #046f74dc, #000000d2);
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
 
-        header {
-            background: linear-gradient(45deg, #000000, #302f2f);
-            color: #576974;
-            text-align: center;
-            padding: 20px;
-            font-size: 2.0em;
-            box-shadow: 0 3px 6px rgba(0, 255, 234, 0.797);
-            border-bottom: 5px solid #0b0909;
-        }
+header {
+    background: linear-gradient(45deg, #000000, #302f2f);
+    color: #576974;
+    text-align: center;
+    padding: 20px;
+    font-size: 2.0em;
+    box-shadow: 0 3px 6px rgba(0, 255, 234, 0.797);
+    border-bottom: 5px solid #0b0909;
+}
 
-        .container {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            width: 80%;
-            margin: 50px auto;
-            flex-wrap: wrap;
-        }
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    width: 80%;
+    margin: 50px auto;
+    flex-wrap: wrap;
+}
 
-        section {
-            background: linear-gradient(45deg, #000000, #4f4b4b);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            width: 100%;
-            max-width: 510px;
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease-in-out;
-        }
+section {
+    background: linear-gradient(45deg, #000000, #4f4b4b);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+    max-width: 510px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+}
 
-        section:hover {
-            transform: translateY(-10px);
-        }
+section:hover {
+    transform: translateY(-10px);
+}
 
-        h2 {
-            color: #ffffff;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
+h2 {
+    color: #ffffff;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
 
-        h1 {
-            color: #ffffff;
-            font-size: 2.8em;
-            margin-bottom: 20px;
-        }
+h1 {
+    color: #ffffff;
+    font-size: 2.8em;
+    margin-bottom: 20px;
+}
 
-        input, button {
-            width: 80%;
-            padding: 14px;
-            margin: 15px 0;
-            border-radius: 8px;
-            border: 1px solid #444;
-            background-color: #444;
-            font-size: 1.1em;
-            color: #fff;
-            transition: border-color 0.3s ease;
-        }
+input, button {
+    width: 80%;
+    padding: 14px;
+    margin: 15px 0;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #444;
+    font-size: 1.1em;
+    color: #fff;
+    transition: border-color 0.3s ease;
+}
 
-        input:focus, button:focus {
-            outline: none;
-            border-color: #185f6cce;
-        }
+input:focus, button:focus {
+    outline: none;
+    border-color: #185f6cce;
+}
 
-        button {
-            background-color: #248779d6;;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
+button {
+    background-color: #248779d6;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
 
-        button:hover {
-            background-color: #39a9a9;
-        }
+button:hover {
+    background-color: #39a9a9;
+}
 
-        .error {
-            color: red;
-            font-size: 1.1em;
-            margin-top: 10px;
-        }
+.error {
+    color: red;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
 
-        .vehicle-list {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.vehicle-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .vehicle-list div {
-            margin-bottom: 20px;
-            width: 100%;
-        }
+.vehicle-list div {
+    margin-bottom: 20px;
+    width: 100%;
+}
 
-        .vehicle-list img {
-            max-width: 220px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+.vehicle-list img {
+    max-width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-        .register-button-container {
-            text-align: center;
-            margin-top: 50px;
-        }
+.register-button-container {
+    text-align: center;
+    margin-top: 50px;
+}
 
-        .register-button {
-            padding: 14px 35px;
-            background-color: #f39c12;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 1.2em;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            text-decoration: none;
-        }
+.register-button {
+    padding: 14px 35px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
 
-        .register-button:hover {
-            background-color: #e67e22;
-            transform: scale(1.05);
-        }
+.register-button:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #3a2e1e;
-            background: linear-gradient(45deg, #000000, #302f2f);
-            font-size: 1.1em;
-            margin-top: 50px;
-        }
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #3a2e1e;
+    background: linear-gradient(45deg, #000000, #302f2f);
+    font-size: 1.1em;
+    margin-top: 50px;
+}
 
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
 
-            section {
-                width: 80%;
-                max-width: none;
-                margin-bottom: 30px;
-            }
-        }
+    section {
+        width: 90%;
+        max-width: 100%;
+        margin-bottom: 30px;
+        height: auto;
+    }
 
-        .section-title {
-            color: #f39c12;
-            font-size: 1.4em;
-            margin-top: 20px;
-            font-weight: bold;
-        }
+    .register-button-container {
+        margin-top: 30px;
+    }
 
-        .section-content {
-            font-size: 1.2em;
-            color: #fff;
-            margin-top: 10px;
-        }
+    .vehicle-list {
+        gap: 15px;
+    }
 
-        .vehicle-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+    input, button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+    }
 
-        .vehicle-list div {
-            text-align: left;
-        }
+    h2, h1 {
+        font-size: 1.5em;
+    }
 
-        .info-window {
-            position: fixed;
-            top: 20%;
-            left: 20px;
-            width: 350px;
-            background-color: #333;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            z-index: 999;
-            display: none;
-        }
+    footer {
+        font-size: 1em;
+    }
+}
 
-        .info-window.active {
-            display: block;
-        }
+.section-title {
+    color: #f39c12;
+    font-size: 1.4em;
+    margin-top: 20px;
+    font-weight: bold;
+}
 
-        .info-window .close-btn {
-            position: absolute;
-            top: 1px;
-            right: -50px;
-            font-size: 40px;
-            background-color: transparent;
-            border: none;
-            color: #00ffcc;
-            cursor: pointer;
-        }
+.section-content {
+    font-size: 1.2em;
+    color: #fff;
+    margin-top: 10px;
+}
 
-        .info-window p {
-            margin-bottom: 10px;
-        }
+.info-window {
+    position: fixed;
+    top: 20%;
+    left: 20px;
+    width: 350px;
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 999;
+    display: none;
+}
 
-        .vehicle-details {
-            font-size: 1.1em;
-            color: #fff;
-            margin-top: 10px;
-        }
+.info-window.active {
+    display: block;
+}
 
-        .vehicle-details img {
-            max-width: 220px;
-        }
+.info-window .close-btn {
+    position: absolute;
+    top: 1px;
+    right: -50px;
+    font-size: 40px;
+    background-color: transparent;
+    border: none;
+    color: #00ffcc;
+    cursor: pointer;
+}
 
-        /* Стилі для автопарку */
-        .vehicle-section {
-            background-color: #444;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 8px;
-        }
+.info-window p {
+    margin-bottom: 10px;
+}
 
-        .vehicle-section h3 {
-            color: #f39c12;
-            font-size: 1.3em;
-            margin-bottom: 10px;
-        }
+.vehicle-details {
+    font-size: 1.1em;
+    color: #fff;
+    margin-top: 10px;
+}
 
-        /* Стилі для автопарку віконця */
-        .vehicle-info-window {
-            position: fixed;
-            top: 20%;
-            left: 20px;
-            width: 500px;
-            background-color: #333;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            z-index: 999;
-            display: none;
-            overflow-y: auto;
-            max-height: 500px;
-        }
+.vehicle-details img {
+    max-width: 220px;
+}
 
-        .vehicle-info-window.active {
-            display: block;
-        }
+/* Стилі для автопарку */
+.vehicle-section {
+    background-color: #444;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
 
-        .vehicle-info-window .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 22px;
-            background-color: transparent;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-        }
+.vehicle-section h3 {
+    color: #f39c12;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
 
-        .vehicle-info-window .section-title {
-            color: #f39c12;
-            font-size: 1.4em;
-            margin-top: 20px;
-        }
+/* Стилі для автопарку віконця */
+.vehicle-info-window {
+    position: fixed;
+    top: 20%;
+    left: 20px;
+    width: 500px;
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 999;
+    display: none;
+    overflow-y: auto;
+    max-height: 500px;
+}
 
-        .vehicle-info-window .section-content {
-            font-size: 1.2em;
-            color: #fff;
-            margin-top: 10px;
-        }
-        .error {
-            color: #ff4d4d;
-            font-weight: bold;
-        }
+.vehicle-info-window.active {
+    display: block;
+}
+
+.vehicle-info-window .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 22px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.vehicle-info-window .section-title {
+    color: #f39c12;
+    font-size: 1.4em;
+    margin-top: 20px;
+}
+
+.vehicle-info-window .section-content {
+    font-size: 1.2em;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.error {
+    color: #ff4d4d;
+    font-weight: bold;
+}
+
     </style>
 </head>
 <body>
