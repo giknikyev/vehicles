@@ -361,32 +361,44 @@ footer {
         const closeInfoWindow = document.getElementById('closeInfoWindow');
         const infoContent = document.getElementById('infoContent');
 
-        checkForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const licenseNumber = licenseNumberInput.value.trim();
-            const vehicle = vehicles.find(v => v.licenseNumber === licenseNumber);
+    
+licenseNumberInput.addEventListener('input', () => {
+    checkResultDiv.innerHTML = ''; // 
+});
 
-            if (vehicle) {
-                infoContent.innerHTML = `
-                    <div class="vehicle-details">
-                        <h3>${vehicle.name}</h3>
-                        <img src="${vehicle.image}" alt="${vehicle.name}">
-                        <p>Номерний знак: ${vehicle.licenseNumber}</p>
-                        <p>Власник: ${vehicle.owner}</p>
-                        <p>Telegram: ${vehicle.telegramid}</p>
-                        <p>Дата реєстрації: ${vehicle.registrationDate}</p>
-                    </div>
-                `;
-                infoWindow.classList.add('active');
-            } else {
-                checkResultDiv.innerHTML = `<p class="error">Транспортний засіб не знайдений!</p>`;
-            }
-        });
+
+checkForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const licenseNumber = licenseNumberInput.value.trim();
+    const vehicle = vehicles.find(v => v.licenseNumber === licenseNumber);
+
+    checkResultDiv.innerHTML = '';
+
+    if (vehicle) {
+        infoContent.innerHTML = `
+            <div class="vehicle-details">
+                <h3>${vehicle.name}</h3>
+                <img src="${vehicle.image}" alt="${vehicle.name}">
+                <p>Номерний знак: ${vehicle.licenseNumber}</p>
+                <p>Власник: ${vehicle.owner}</p>
+                <p>Telegram: ${vehicle.telegramid}</p>
+                <p>Дата реєстрації: ${vehicle.registrationDate}</p>
+            </div>
+        `;
+        infoWindow.classList.add('active');
+    } else {
+        checkResultDiv.innerHTML = `<p class="error">Транспортний засіб не знайдений!</p>`;
+    }
+});
+
+
 
         closeInfoWindow.addEventListener('click', () => {
     infoWindow.classList.remove('active'); 
-    licenseNumberInput.value = ''; 
+licenseNumberInput.addEventListener('input', () => {
     checkResultDiv.innerHTML = ''; 
+});
+
         });
 
 
