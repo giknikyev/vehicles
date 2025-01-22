@@ -8,20 +8,20 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #212121;
+            background: linear-gradient(45deg, #046f74dc, #000000d2);
             margin: 0;
             padding: 0;
-            color: #fff;
+            color: #ffffff;
         }
 
         header {
-            background-color: #000000;
-            color: #ffcc00;
+            background: linear-gradient(45deg, #000000, #302f2f);
+            color: #576974;
             text-align: center;
-            padding: 30px;
-            font-size: 2.5em;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.622);
-            border-bottom: 5px solid #ffffff71;
+            padding: 20px;
+            font-size: 2.0em;
+            box-shadow: 0 3px 6px rgba(0, 255, 234, 0.797);
+            border-bottom: 5px solid #0b0909;
         }
 
         .container {
@@ -34,13 +34,13 @@
         }
 
         section {
-            background-color: #333;
+            background: linear-gradient(45deg, #000000, #4f4b4b);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             text-align: center;
             width: 100%;
-            max-width: 400px;
+            max-width: 510px;
             height: 400px;
             display: flex;
             flex-direction: column;
@@ -58,6 +58,12 @@
             margin-bottom: 20px;
         }
 
+        h1 {
+            color: #ffffff;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+        }
+
         input, button {
             width: 80%;
             padding: 14px;
@@ -72,11 +78,11 @@
 
         input:focus, button:focus {
             outline: none;
-            border-color: #f39c12;
+            border-color: #185f6cce;
         }
 
         button {
-            background-color: #f39c12;
+            background-color: #248779d6;;
             color: white;
             cursor: pointer;
             font-weight: bold;
@@ -84,7 +90,7 @@
         }
 
         button:hover {
-            background-color: #e67e22;
+            background-color: #39a9a9;
         }
 
         .error {
@@ -137,8 +143,8 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #f39c12;
-            color: white;
+            background-color: #3a2e1e;
+            background: linear-gradient(45deg, #000000, #302f2f);
             font-size: 1.1em;
             margin-top: 50px;
         }
@@ -179,7 +185,6 @@
             text-align: left;
         }
 
-        /* Стилі для віконця з інформацією */
         .info-window {
             position: fixed;
             top: 20%;
@@ -199,12 +204,12 @@
 
         .info-window .close-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 22px;
+            top: 1px;
+            right: -50px;
+            font-size: 40px;
             background-color: transparent;
             border: none;
-            color: #fff;
+            color: #00ffcc;
             cursor: pointer;
         }
 
@@ -278,45 +283,46 @@
             color: #fff;
             margin-top: 10px;
         }
+        .error {
+            color: #ff4d4d;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>БАЗА ДАНИХ ТЗ</h1>
-        <p><small>UKRAINE RP</small></p>
+        <h1>ТРАНСПОРТНІ ЗАСОБИ</h1>
+        <h3>БАЗА ДАНИХ<br><small>UKRAINE RP</small></br></h3>
     </header>
 
     <div class="container">
-        <!-- Перевірка номерних знаків -->
         <section id="check-number">
             <h2>Перевірка номерних знаків</h2>
             <form id="checkForm">
-                <input type="text" id="licenseNumber" name="licenseNumber" placeholder="Введіть номерні знаки" required>
+                <input type="text" id="licenseNumber" name="licenseNumber" placeholder="Введіть номерний знак" required>
                 <button type="submit">ПЕРЕВІРИТИ</button>
             </form>
             <div id="checkResult" class="result-container"></div>
         </section>
-
-        <!-- Перегляд автопарку -->
         <section id="user-vehicles">
             <h2>Твій Автопарк</h2>
             <form id="userForm">
-                <input type="text" id="username" name="username" placeholder="Введіть username" required>
-                <input type="password" id="password" name="password" placeholder="Введіть пароль" required>
+                <input type="text" id="username" name="username" placeholder="Введіть свій username" required>
+                <input type="password" id="password" name="password" placeholder="Введіть свій пароль" required>
                 <button type="submit">ПЕРЕГЛЯНУТИ АВТОПАРК</button>
             </form>
             <div id="vehicleResult" class="result-container"></div>
         </section>
     </div>
 
-    <!-- Віконце з інформацією про номерний знак -->
+
     <div class="info-window" id="infoWindow">
         <button class="close-btn" id="closeInfoWindow">×</button>
         <div id="infoContent"></div>
     </div>
 
-    <!-- Віконце з інформацією про автопарк -->
+
     <div class="vehicle-info-window" id="vehicleInfoWindow">
         <button class="close-btn" id="closeVehicleInfoWindow">×</button>
         <div id="vehicleInfoContent"></div>
@@ -324,14 +330,14 @@
 
     <script>
         const vehicles = [
-        { name: "Stuttgart Royal Majestic", licenseNumber: "HH GI 79", owner: "Rostyk_gej71", password: "007100", telegramid: "7502438357", registrationDate: "2024-01-21", category: "Dealership", image: "https://i.ibb.co/N1s9s2s/2025-01-21-175042.png" },
+        { name: "Stuttgart Royal Majestic", licenseNumber: "HH GI 79", owner: "Rostyk_gej71", password: "069690", telegramid: "7502438357", registrationDate: "2024-01-21", category: "Dealership", image: "https://i.ibb.co/N1s9s2s/2025-01-21-175042.png" },
             { name: "Stuttgart Royal Majestic", licenseNumber: "CD5678", owner: "user1", password: "password1", telegramid: "12345", registrationDate: "2024-02-01", category: "Police", image: "https://via.placeholder.com/150" },
             { name: "Car 3", licenseNumber: "EF9012", owner: "user2", password: "password2", telegramid: "67890", registrationDate: "2024-03-01", category: "Fire department", image: "https://via.placeholder.com/150" },
             { name: "Car 4", licenseNumber: "GH3456", owner: "user2", password: "password2", telegramid: "67890", registrationDate: "2024-04-01", category: "Bus Company", image: "https://via.placeholder.com/150" },
             { name: "Car 5", licenseNumber: "IJ7890", owner: "user3", password: "password3", telegramid: "11223", registrationDate: "2024-05-01", category: "Truck Company", image: "https://via.placeholder.com/150" }
         ];
 
-        // Перевірка номерного знаку
+      
         const checkForm = document.getElementById('checkForm');
         const licenseNumberInput = document.getElementById('licenseNumber');
         const checkResultDiv = document.getElementById('checkResult');
@@ -351,7 +357,7 @@
                         <img src="${vehicle.image}" alt="${vehicle.name}">
                         <p>Номерний знак: ${vehicle.licenseNumber}</p>
                         <p>Власник: ${vehicle.owner}</p>
-                        <p>Telegram ID: ${vehicle.telegramid}</p>
+                        <p>Telegram: ${vehicle.telegramid}</p>
                         <p>Дата реєстрації: ${vehicle.registrationDate}</p>
                     </div>
                 `;
@@ -362,11 +368,12 @@
         });
 
         closeInfoWindow.addEventListener('click', () => {
-            infoWindow.classList.remove('active');
-            licenseNumberInput.value = ''; // Видаляємо номерний знак з поля вводу
+    infoWindow.classList.remove('active'); 
+    licenseNumberInput.value = ''; 
+    checkResultDiv.innerHTML = ''; 
         });
 
-        // Відображення автопарку
+
         const userForm = document.getElementById('userForm');
         const usernameInput = document.getElementById('username');
         const passwordInput = document.getElementById('password');
@@ -376,54 +383,84 @@
         const vehicleInfoContent = document.getElementById('vehicleInfoContent');
 
         userForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = usernameInput.value.trim();
-            const password = passwordInput.value.trim();
+    event.preventDefault();
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
 
-            if (username && password) {
-                vehicleResultDiv.innerHTML = '';
-                const categorizedVehicles = {
-                    "Dealership": [],
-                    "Police": [],
-                    "Fire department": [],
-                    "Bus Company": [],
-                    "Truck Company": []
-                };
 
-                vehicles.forEach(vehicle => {
-                    if (vehicle.owner === username && vehicle.password === password) {
-                        categorizedVehicles[vehicle.category].push(vehicle);
-                    }
-                });
+    vehicleResultDiv.innerHTML = '';
 
-                vehicleInfoContent.innerHTML = '';
-                Object.keys(categorizedVehicles).forEach(category => {
-                    if (categorizedVehicles[category].length > 0) {
-                        vehicleInfoContent.innerHTML += `<div class="vehicle-section">
-                            <h3 class="section-title">${category}</h3>
-                            <div class="vehicle-list">`;
-                        categorizedVehicles[category].forEach(vehicle => {
-                            vehicleInfoContent.innerHTML += `
-                                <div class="section-content">
-                                    <h3>${vehicle.name}</h3>
-                                    <img src="${vehicle.image}" alt="${vehicle.name}">
-                                    <p>Номерний знак: ${vehicle.licenseNumber}</p>
-                                    <p>Telegram ID: ${vehicle.telegramid}</p>
-                                </div>
-                            `;
-                        });
-                        vehicleInfoContent.innerHTML += `</div></div>`;
-                    }
-                });
+    if (username && password) {
+        const userVehicles = vehicles.filter(vehicle => vehicle.owner === username && vehicle.password === password);
 
-                vehicleInfoWindow.classList.add('active');
-            }
-        });
+        if (userVehicles.length > 0) {
+ 
+            vehicleResultDiv.innerHTML = '';
 
-        // Закриття віконця автопарку
+     
+            const categorizedVehicles = {
+                "Dealership": [],
+                "Police": [],
+                "Fire department": [],
+                "Bus Company": [],
+                "Truck Company": []
+            };
+
+            userVehicles.forEach(vehicle => {
+                categorizedVehicles[vehicle.category].push(vehicle);
+            });
+
+        
+            vehicleInfoContent.innerHTML = '';
+            Object.keys(categorizedVehicles).forEach(category => {
+                if (categorizedVehicles[category].length > 0) {
+                    vehicleInfoContent.innerHTML += `<div class="vehicle-section">
+                        <h3 class="section-title">${category}</h3>
+                        <div class="vehicle-list">`;
+                    categorizedVehicles[category].forEach(vehicle => {
+                        vehicleInfoContent.innerHTML += `
+                            <div class="section-content">
+                                <h3>${vehicle.name}</h3>
+                                <img src="${vehicle.image}" alt="${vehicle.name}">
+                                <p>Номерний знак: ${vehicle.licenseNumber}</p>
+                                <p>Telegram: ${vehicle.telegramid}</p>
+                            </div>`;
+                    });
+                    vehicleInfoContent.innerHTML += `</div></div>`;
+                }
+            });
+
+            vehicleInfoWindow.classList.add('active');
+        } else {
+            vehicleResultDiv.innerHTML = `<p class="error">Невірний username або пароль!</p>`;
+        }
+    } else {
+        vehicleResultDiv.innerHTML = `<p class="error">Будь ласка, заповніть всі поля!</p>`;
+    }
+});
+
+
+[usernameInput, passwordInput].forEach(input => {
+    input.addEventListener('input', () => {
+        vehicleResultDiv.innerHTML = '';
+    });
+});
+
+
+closeVehicleInfoWindow.addEventListener('click', () => {
+    vehicleInfoWindow.classList.remove('active');
+    usernameInput.value = '';
+    passwordInput.value = '';
+    vehicleResultDiv.innerHTML = ''; 
+});
+
+
         closeVehicleInfoWindow.addEventListener('click', () => {
             vehicleInfoWindow.classList.remove('active');
         });
     </script>
+      <footer>
+        <p>&copy; 2025 Ukraine RP. Всі права захищені.</p>
+    </footer>
 </body>
 </html>
