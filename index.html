@@ -265,30 +265,30 @@ footer {
 /* Стилі для автопарку */
 .vehicle-section {
     background-color: #444;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 8px;
+    padding: 30px; 
+    margin-top: 30px; 
+    border-radius: 12px; 
 }
 
 .vehicle-section h3 {
     color: #f39c12;
-    font-size: 1.3em;
-    margin-bottom: 10px;
+    font-size: 1.8em; 
+    margin-bottom: 15px;
 }
 
 .vehicle-info-window {
     position: fixed;
-    top: 20%;
-    left: 20px;
-    width: 500px;
+    top: 15%; 
+    left: 50px;
+    width: 450px;
     background-color: #333;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    padding: 20px;
+    border-radius: 12px; 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); 
+    padding: 30px; 
     z-index: 999;
     display: none;
     overflow-y: auto;
-    max-height: 500px;
+    max-height: 600px; 
 }
 
 .vehicle-info-window.active {
@@ -297,27 +297,26 @@ footer {
 
 .vehicle-info-window .close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 22px;
+    top: -15px;
+    right: -70px; 
+    font-size: 50px;
     background-color: transparent;
     border: none;
-    color: #fff;
+    color: #00ffcc;
     cursor: pointer;
 }
 
 .vehicle-info-window .section-title {
     color: #f39c12;
-    font-size: 1.4em;
-    margin-top: 20px;
+    font-size: 1.8em; 
+    margin-top: 30px;
 }
 
 .vehicle-info-window .section-content {
-    font-size: 1.2em;
+    font-size: 1.4em;
     color: #fff;
-    margin-top: 10px;
+    margin-top: 15px;
 }
-
 .error {
     color: #ff4d4d;
     font-weight: bold;
@@ -377,12 +376,7 @@ header {
             <button class="social-button" onclick="window.location.href='https://t.me/vehicles_uabot?start=start'">Зареєструвати ТЗ</button>
         </div>
     </header>
-    
-    
-    
-    
-    
-
+   
     <div class="container">
         <section id="check-number">
             <h2>Перевірка номерних знаків</h2>
@@ -416,52 +410,163 @@ header {
     </div>
 
     <script>
+        const vehicleImages = { 
+            /* Dealership */
+    "Wolfsburg Handel": "https://i.ibb.co/LdJsPS1/2025-01-21-165124.png",
+    "Wolfsburg Discovery": "https://i.ibb.co/tMpYD8t/2025-01-21-165342.png",
+    "BKM 1 Cabriolet": "https://i.ibb.co/ZYKGPXM/2025-01-21-165425.png",
+    "BKM 1200 Tourer": "https://i.ibb.co/yNRDkRD/2025-01-21-165500.png",
+    "Quad": "https://i.ibb.co/s5P1Xc0/2025-01-21-165546.png",
+    "Avantismo S5": "https://i.ibb.co/7CFnKr8/2025-01-21-165628.png",
+    "Wolfsburg Karen": "https://i.ibb.co/0jYSf1F/2025-01-21-165745.png",
+    "Stuttgart Kasten": "https://i.ibb.co/Qfv3Pn1/2025-01-21-165844.png",
+    "Stuttgart Executive": "",
+    "Stuttgart Jogger": "",
+    "Wolfsburg T6": "",
+    "Stuttgart GMA 63": "https://i.ibb.co/VSvZq7H/2025-01-21-170651.png",
+    "Vellfire XY6": "",
+    "Falcon Traveller": "",
+    "Wolfsburg Pick-up": "",
+    "Avantismo Q4 Electron": "",
+    "Tractor": "https://i.ibb.co/By8QWJc/2025-01-21-171200.png",
+    "Avantismo A6": "",
+    "Celestial Type S": "",
+    "Avantismo Q5": "",
+    "Vellfire R1": "https://i.ibb.co/qnvzpk1/2025-01-21-171534.png",
+    "Stuttgart GMA C63 Facelift": "",
+    "BKM M2": "https://i.ibb.co/WBhPJdd/2025-01-21-171743.png",
+    "Stuttgart Landschaft": "",
+    "Avantismo R8": "https://i.ibb.co/ZNVTJv5/2025-01-21-171909.png",
+    "Stuttgart GMA Roadster": "",
+    "BKM X3": "",
+    "BKM M5": "https://i.ibb.co/zrj8mBZ/2025-01-21-172102.png",
+    "Stuttgart GMA Sport": "https://i.ibb.co/306Gnff/2025-01-21-172148.png",
+    "Ferdinand 911": "https://i.ibb.co/mFFkWV6/2025-01-21-172225.png",
+    "Ferdinand 911 Cabriolet": "https://i.ibb.co/LxtQR2z/2025-01-21-172256.png",
+    "Stuttgart GMA Commute": "https://i.ibb.co/VgjTgCP/2025-01-21-172349.png",
+    "Bullhorn Prancer SFP Fury": "https://i.ibb.co/dpvycDP/2025-01-21-173601.png",
+    "Avantismo RS4": "https://i.ibb.co/pQhrp7c/2025-01-21-173739.png",
+    "Ferdinand Jalapeno": "https://i.ibb.co/RDKkpBv/2025-01-21-173940.png",
+    "Maranello Catania": "https://i.ibb.co/pj61Wj1/2025-01-21-174231.png",
+    "Chryslus Champion Limousine": "https://i.ibb.co/rZkKWHd/2025-01-21-174335.png",
+    "Ferdinand Vivo": "https://i.ibb.co/5THqnMF/2025-01-21-174949.png",
+    "Stuttgart Royal Majestic": "https://i.ibb.co/N1s9s2s/2025-01-21-175042.png",
+    "Silhouette Carbon": "https://i.ibb.co/Y38rhzF/2025-01-21-175230.png",
+    "Mauntley National GT": "https://i.ibb.co/qsMXhTp/2025-01-21-175312.png",
+    "Strugatti Ettore": "https://i.ibb.co/cx2Fb7x/2025-01-21-175421.png",
+
+    /* Police */
+    "Stuttgart Coach": "https://i.ibb.co/tpjhyL5/2025-01-23-235857.png",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+
+
+
+
+
+
+        }
+        const vehicleTypes = {
+             /* Dealership */
+  "Wolfsburg Handel": "Легковий автомобіль",
+  "Wolfsburg Discovery": "Електричний кросовер",
+  "BKM 1 Cabriolet": "Кабріолет",
+  "BKM 1200 Tourer": "Туристичний мотоцикл",
+  "Quad": "Квадроцикл",
+  "Avantismo S5": "Купе/Седан",
+  "Wolfsburg Karen": "Мінівен",
+  "Stuttgart Kasten": "Мінівен/Фургон",
+  "Stuttgart Executive": "Представницький автомобіль",
+  "Stuttgart Jogger": "Мікроавтобус",
+  "Wolfsburg T6": "Фургон/мікроавтобус",
+  "Stuttgart GMA 63": "Чотиридверне купе/купе",
+  "Vellfire XY6": "Мотоцикл",
+  "Falcon Traveller": "Мінівен",
+  "Wolfsburg Pick-up": "Пікап/позашляховик",
+  "Avantismo Q4 Electron": "Кросовер",
+  "Tractor": "Трактор",
+  "Avantismo A6": "Універсал",
+  "Celestial Type S": "Седан",
+  "Avantismo Q5": "Позашляховик",
+  "Vellfire R1": "Мотоцикл",
+  "Stuttgart GMA C63 Facelift": "Купе",
+  "BKM M2": "Спортивне купе",
+  "Stuttgart Landschaft": "Позашляховик",
+  "Avantismo R8": "Спорткар",
+  "Stuttgart GMA Roadster": "",
+  "BKM X3": "Позашляховик",
+  "BKM M5": "Купе",
+  "Stuttgart GMA Sport": "Спорткар",
+  "Ferdinand 911": "Спорткар/купе",
+  "Ferdinand 911 Cabriolet": "Кабріолет",
+  "Stuttgart GMA Commute": "Позашляховик",
+  "Bullhorn Prancer SFP Fury": "Седан",
+  "Avantismo RS4": "Універсал",
+  "Ferdinand Jalapeno": "Позашляховик",
+  "Maranello Catania": "Спорткар/купе",
+  "Chryslus Champion Limousine": "Лімузин",
+  "Ferdinand Vivo": "Електричний спорткар",
+  "Stuttgart Royal Majestic": "Седан",
+  "Silhouette Carbon": "Спорткар/купе",
+  "Mauntley National GT": "Купе",
+  "Strugatti Ettore": "Спорткар"
+    /* Police */
+
+};
+
         const vehicles = [
-            { name: "Stuttgart Royal Majestic", licenseNumber: "HH GI 79", owner: "Rostyk_gej71", password: "069690", telegramid: "7502438357", registrationDate: "21.01.2025", category: "Dealership", image: "https://i.ibb.co/N1s9s2s/2025-01-21-175042.png" },
+            { name: "Stuttgart Royal Majestic", licenseNumber: "HH GI 79", owner: "Rostyk_gej71", password: "069690", telegramid: "7502438357", registrationDate: "21.01.2025", category: "Dealership" },
 
-            { name: "Mauntley National GT", licenseNumber: "HH EY 12", owner: "bodja150510", password: "", telegramid: "1334371648", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/qsMXhTp/2025-01-21-175312.png" },
-            { name: "Ferdinand 911", licenseNumber: "HH MJ 99", owner: "bodja150510", password: "", telegramid: "1334371648", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/mFFkWV6/2025-01-21-172225.png" },
-            { name: "Ferdinand Jalapeno", licenseNumber: "HH WD 30", owner: "bodja150510", password: "", telegramid: "1334371648", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/RDKkpBv/2025-01-21-173940.png" },
+            { name: "Mauntley National GT", licenseNumber: "HH EY 12", owner: "bodja150510", password: "", telegramid: "1334371648", registrationDate: "23.01.2025", category: "Dealership" },
+            { name: "Ferdinand 911", licenseNumber: "HH MJ 99", owner: "bodja150510", password: "", telegramid: "1334371648", registrationDate: "23.01.2025", category: "Dealership" },
+            { name: "Ferdinand Jalapeno", licenseNumber: "HH WD 30", owner: "bodja150510", password: "", telegramid: "1334371648", registrationDate: "23.01.2025", category: "Dealership" },
 
-            { name: "Ferdinand 911", licenseNumber: "HH XK 83", owner: "Levopravo2024", password: "", telegramid: "5134083594", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/mFFkWV6/2025-01-21-172225.png" },
+            { name: "Ferdinand 911", licenseNumber: "HH XK 83", owner: "Levopravo2024", password: "", telegramid: "5134083594", registrationDate: "23.01.2025", category: "Dealership"},
 
-            { name: "Ferdinand Vivo", licenseNumber: "HH FH 98E", owner: "01234567890ua", password: "", telegramid: "1028211294", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/5THqnMF/2025-01-21-174949.png" },
-            { name: "Stuttgart Kasten", licenseNumber: "HH OQ 80", owner: "01234567890ua", password: "", telegramid: "1028211294", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/Qfv3Pn1/2025-01-21-165844.png" },
-            { name: "Wolfsburg Discovery", licenseNumber: "HH CQ 16E", owner: "01234567890ua", password: "", telegramid: "1028211294", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/tMpYD8t/2025-01-21-165342.png" },
-            { name: "Wolfsburg Handel", licenseNumber: "HH FE 87", owner: "01234567890ua", password: "", telegramid: "1028211294", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/LdJsPS1/2025-01-21-165124.png" },
+            { name: "Ferdinand Vivo", licenseNumber: "HH FH 98E", owner: "01234567890ua", password: "", telegramid: "1028211294", registrationDate: "23.01.2025", category: "Dealership" },
+            { name: "Stuttgart Kasten", licenseNumber: "HH OQ 80", owner: "01234567890ua", password: "", telegramid: "1028211294", registrationDate: "23.01.2025", category: "Dealership" },
+            { name: "Wolfsburg Discovery", licenseNumber: "HH CQ 16E", owner: "01234567890ua", password: "", telegramid: "1028211294", registrationDate: "23.01.2025", category: "Dealership" },
+            { name: "Wolfsburg Handel", licenseNumber: "HH FE 87", owner: "01234567890ua", password: "1", telegramid: "1028211294", registrationDate: "23.01.2025", category: "Dealership" },
 
-            { name: "Avantismo R8", licenseNumber: "", owner: "ZXC52", password: "", telegramid: "6110818100", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/ZNVTJv5/2025-01-21-171909.png" },
+            { name: "Avantismo R8", licenseNumber: "", owner: "ZXC52", password: "", telegramid: "6110818100", registrationDate: "23.01.2025", category: "Dealership" },
 
-            { name: "Bullhorn Prancer SFP Fury", licenseNumber: "HH BV 95", owner: "fgg3456t", password: "", telegramid: "1731600714", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/dpvycDP/2025-01-21-173601.png" },
-            { name: "Tractor", licenseNumber: "HH CQ 31", owner: "fgg3456t", password: "", telegramid: "1731600714", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/By8QWJc/2025-01-21-171200.png" },
+            { name: "Bullhorn Prancer SFP Fury", licenseNumber: "HH BV 95", owner: "fgg3456t", password: "", telegramid: "1731600714", registrationDate: "23.01.2025", category: "Dealership" },
+            { name: "Tractor", licenseNumber: "HH CQ 31", owner: "fgg3456t", password: "", telegramid: "1731600714", registrationDate: "23.01.2025", category: "Dealership" },
             
-            { name: "BKM M2", licenseNumber: "HH GY 27", owner: "K_PoPlove9473", password: "", telegramid: "6014351539", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/WBhPJdd/2025-01-21-171743.png" },
+            { name: "BKM M2", licenseNumber: "HH GY 27", owner: "K_PoPlove9473", password: "", telegramid: "6014351539", registrationDate: "23.01.2025", category: "Dealership" },
 
-            { name: "Ferdinand 911", licenseNumber: "HH ET 64", owner: "GGpaprikashGG", password: "", telegramid: "5120042358", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/mFFkWV6/2025-01-21-172225.png" },
+            { name: "Ferdinand 911", licenseNumber: "HH ET 64", owner: "GGpaprikashGG", password: "", telegramid: "5120042358", registrationDate: "23.01.2025", category: "Dealership" },
            
-            { name: "Ferdinand Vivo", licenseNumber: "HH OQ 31E", owner: "Dorcftf", password: "", telegramid: "6187783163", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/5THqnMF/2025-01-21-174949.png" },
+            { name: "Ferdinand Vivo", licenseNumber: "HH OQ 31E", owner: "Dorcftf", password: "", telegramid: "6187783163", registrationDate: "23.01.2025", category: "Dealership" },
            
-            { name: "Wolfsburg Handel", licenseNumber: "HH KY 01", owner: "p1eyys", password: "", telegramid: "1252617430", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/LdJsPS1/2025-01-21-165124.png" },
-            { name: "Strugatti Ettore", licenseNumber: "HH SH 82", owner: "p1eyys", password: "", telegramid: "1252617430", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/cx2Fb7x/2025-01-21-175421.png" },
-            { name: "Stuttgart Royal Majestic", licenseNumber: "HH DF 77", owner: "p1eyys", password: "", telegramid: "1252617430", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/N1s9s2s/2025-01-21-175042.png" },
+            { name: "Wolfsburg Handel", licenseNumber: "HH KY 01", owner: "p1eyys", password: "", telegramid: "1252617430", registrationDate: "23.01.2025", category: "Dealership" },
+            { name: "Strugatti Ettore", licenseNumber: "HH SH 82", owner: "p1eyys", password: "", telegramid: "1252617430", registrationDate: "23.01.2025", category: "Dealership" },
+            { name: "Stuttgart Royal Majestic", licenseNumber: "HH DF 77", owner: "p1eyys", password: "", telegramid: "1252617430", registrationDate: "23.01.2025", category: "Dealership" },
            
-            { name: "Stuttgart GMA 63", licenseNumber: "HH MT 29", owner: "Robert_polsan228", password: "", telegramid: "1921850684", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/VSvZq7H/2025-01-21-170651.png" },
+            { name: "Stuttgart GMA 63", licenseNumber: "HH MT 29", owner: "Robert_polsan228", password: "", telegramid: "1921850684", registrationDate: "23.01.2025", category: "Dealership" },
             
-            { name: "Ferdinand Vivo", licenseNumber: "HH UF 65E", owner: "nazar1cyber2sportman", password: "", telegramid: "6194910294", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/5THqnMF/2025-01-21-174949.png" },
-            { name: "Strugatti Ettore", licenseNumber: "HH KW 95", owner: "nazar1cyber2sportman", password: "", telegramid: "6194910294", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/cx2Fb7x/2025-01-21-175421.png" },
-            { name: "Vellfire R1", licenseNumber: "HH UC 43", owner: "nazar1cyber2sportman", password: "", telegramid: "6194910294", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/qnvzpk1/2025-01-21-171534.png" },
-            { name: "Stuttgart GMA Sport", licenseNumber: "HH NZ 49", owner: "nazar1cyber2sportman", password: "", telegramid: "6194910294", registrationDate: "23.01.2025", category: "Police", image: "https://i.ibb.co/306Gnff/2025-01-21-172148.png" },
+            { name: "Ferdinand Vivo", licenseNumber: "HH UF 65E", owner: "nazar1cyber2sportman", password: "", telegramid: "6194910294", registrationDate: "23.01.2025", category: "Dealership" },
+            { name: "Strugatti Ettore", licenseNumber: "HH KW 95", owner: "nazar1cyber2sportman", password: "", telegramid: "6194910294", registrationDate: "23.01.2025", category: "Dealership" },
+            { name: "Vellfire R1", licenseNumber: "HH UC 43", owner: "nazar1cyber2sportman", password: "", telegramid: "6194910294", registrationDate: "23.01.2025", category: "Dealership" },
+            { name: "Stuttgart GMA Sport", licenseNumber: "HH NZ 49", owner: "nazar1cyber2sportman", password: "", telegramid: "6194910294", registrationDate: "23.01.2025", category: "Police" },
            
-            { name: "Ferdinand 911", licenseNumber: "HH RX 02", owner: "Mr_Zver3000", password: "", telegramid: "6626655148", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/mFFkWV6/2025-01-21-172225.png" },
-            { name: "Mauntley National GT", licenseNumber: "HH TU 77", owner: "Mr_Zver3000", password: "", telegramid: "6626655148", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/qsMXhTp/2025-01-21-175312.png" },
-            { name: "Wolfsburg Handel", licenseNumber: "HH YH 96", owner: "Mr_Zver3000", password: "", telegramid: "6626655148", registrationDate: "23.01.2025", category: "Dealership", image: "https://i.ibb.co/LdJsPS1/2025-01-21-165124.png" },
-            { name: "BKM M5", licenseNumber: "HH CB 08", owner: "Mr_Zver3000", password: "", telegramid: "6626655148", registrationDate: "23.01.2025", category: "Police", image: "https://i.ibb.co/zrj8mBZ/2025-01-21-172102.png" },
-            { name: "Stuttgart Coach", licenseNumber: "HH CH 61", owner: "Mr_Zver3000", password: "", telegramid: "6626655148", registrationDate: "24.01.2025", category: "Police", image: "https://i.ibb.co/tpjhyL5/2025-01-23-235857.png" },
+            { name: "Ferdinand 911", licenseNumber: "HH RX 02", owner: "Mr_Zver3000", password: "", telegramid: "6626655148", registrationDate: "23.01.2025", category: "Dealership" },
+            { name: "Mauntley National GT", licenseNumber: "HH TU 77", owner: "Mr_Zver3000", password: "", telegramid: "6626655148", registrationDate: "23.01.2025", category: "Dealership" },
+            { name: "Wolfsburg Handel", licenseNumber: "HH YH 96", owner: "Mr_Zver3000", password: "", telegramid: "6626655148", registrationDate: "23.01.2025", category: "Dealership" },
+            { name: "BKM M5", licenseNumber: "HH CB 08", owner: "Mr_Zver3000", password: "", telegramid: "6626655148", registrationDate: "23.01.2025", category: "Police" },
+            { name: "Stuttgart Coach", licenseNumber: "HH CH 61", owner: "Mr_Zver3000", password: "", telegramid: "6626655148", registrationDate: "24.01.2025", category: "Police" },
           
-            { name: "Mauntley National GT", licenseNumber: "HH DM 29", owner: "Colden_720", password: "", telegramid: "5158076915", registrationDate: "24.01.2025", category: "Dealership", image: "https://i.ibb.co/qsMXhTp/2025-01-21-175312.png" },
+            { name: "Mauntley National GT", licenseNumber: "HH DM 29", owner: "Colden_720", password: "", telegramid: "5158076915", registrationDate: "24.01.2025", category: "Dealership" },
            
-            { name: "Stuttgart Royal Majestic", licenseNumber: "HH DQ 39", owner: "Vaylet009", password: "", telegramid: "5169521179", registrationDate: "24.01.2025", category: "Dealership", image: "https://i.ibb.co/N1s9s2s/2025-01-21-175042.png" },
-            { name: "Vellfire R1", licenseNumber: "HH YQ 57", owner: "Vaylet009", password: "", telegramid: "5169521179", registrationDate: "24.01.2025", category: "Dealership", image: "https://i.ibb.co/qnvzpk1/2025-01-21-171534.png" },
+            { name: "Stuttgart Royal Majestic", licenseNumber: "HH DQ 39", owner: "Vaylet009", password: "", telegramid: "5169521179", registrationDate: "24.01.2025", category: "Dealership" },
+            { name: "BKM 1200 Tourer", licenseNumber: "HH YQ 57", owner: "Vaylet009", password: "", telegramid: "5169521179", registrationDate: "24.01.2025", category: "Dealership" },
            
         ];
 
@@ -494,25 +599,47 @@ checkForm.addEventListener('submit', function(event) {
     checkResultDiv.innerHTML = ''; 
 
     if (vehicle) {
-        infoContent.innerHTML = `
-            <div class="vehicle-details">
-                <h3>${vehicle.name}</h3>
-                <img src="${vehicle.image}" alt="${vehicle.name}">
-                <p>Номерний знак: <b>${vehicle.licenseNumber}</b></p>
-                <p>Категорія: <b>${vehicle.category}</b></p>
-                <p>Власник: <b>${vehicle.owner}</b></p>
-                <p>Telegram: <b>${vehicle.telegramid}</b></p>
-                <p>Дата реєстрації: <b>${vehicle.registrationDate}</b></p>
-            </div>
-        `;
-        infoWindow.classList.add('active'); 
+    if (vehicleTypes[vehicle.name]) {
+        vehicle.type = vehicleTypes[vehicle.name];
+    } else {
+        vehicle.type = "Невідомий вид"; 
+    }
+    const image = vehicleImages[vehicle.name] || 'https://example.com/default-image.jpg';
+
+    infoContent.innerHTML = `
+        <div class="vehicle-details">
+            <h3>${vehicle.name}</h3>
+            <img src="${image}" alt="${vehicle.name}">
+            <p>Номерний знак: <b>${vehicle.licenseNumber}</b></p>
+            <p>Категорія: <b>${vehicle.category}</b></p>
+            <p>Вид: <strong>${vehicle.type}</strong></p>
+            <p>Власник: <b>${vehicle.owner}</b></p>
+            <p>Telegram: <b>${vehicle.telegramid || "Не вказано"}</b></p>
+            <p>Дата реєстрації: <b>${vehicle.registrationDate}</b></p>
+        </div>
+    `;
+
+    infoWindow.classList.add('active');
     } else {
         checkResultDiv.innerHTML = `<p class="error">Транспортний засіб не знайдений!</p>`;
     }
+    
+    if (newVehicle && newVehicle.name) {
+    if (vehicleTypes[newVehicle.name]) {
+        newVehicle.type = vehicleTypes[newVehicle.name];
+    } else {
+        newVehicle.type = "Невідомий вид"; 
+        vehicles.forEach((vehicle) => {
+    vehicle.type = vehicleTypes[vehicle.name] || "Невідомий вид";
+    
 });
+    }
+} else {
+    console.error("Помилка: newVehicle або newVehicle.name не визначено");
+}
 
 
-
+});
 
         closeInfoWindow.addEventListener('click', () => {
     infoWindow.classList.remove('active'); 
@@ -530,6 +657,7 @@ licenseNumberInput.addEventListener('input', () => {
         const vehicleInfoWindow = document.getElementById('vehicleInfoWindow');
         const closeVehicleInfoWindow = document.getElementById('closeVehicleInfoWindow');
         const vehicleInfoContent = document.getElementById('vehicleInfoContent');
+        
 
         userForm.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -567,13 +695,15 @@ licenseNumberInput.addEventListener('input', () => {
                         <h3 class="section-title">${category}</h3>
                         <div class="vehicle-list">`;
                     categorizedVehicles[category].forEach(vehicle => {
-                        vehicleInfoContent.innerHTML += `
-                            <div class="section-content">
-                                <h3>${vehicle.name}</h3>
-                                <img src="${vehicle.image}" alt="${vehicle.name}">
-                                <p>Номерний знак: ${vehicle.licenseNumber}</p>
-                                <p>Telegram: ${vehicle.telegramid}</p>
-                            </div>`;
+                        const image = vehicleImages[vehicle.name] || 'https://example.com/default-image.jpg';
+                           vehicleInfoContent.innerHTML += `
+                        <div class="section-content">
+                        <h3>${vehicle.name}</h3>
+                       <img src="${image}" alt="${vehicle.name}">
+                       <p>Номерний знак: ${vehicle.licenseNumber}</p>
+                       <p>Категорія: <b>${vehicle.category}</b></p>
+                     </div>`;
+
                     });
                     vehicleInfoContent.innerHTML += `</div></div>`;
                 }
@@ -603,9 +733,10 @@ closeVehicleInfoWindow.addEventListener('click', () => {
     vehicleResultDiv.innerHTML = ''; 
 });
 
-
         closeVehicleInfoWindow.addEventListener('click', () => {
             vehicleInfoWindow.classList.remove('active');
+
+            
         });
     </script>
       <footer>
