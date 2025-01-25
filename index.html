@@ -6,12 +6,38 @@
     <title>Транспортні Засоби | UKRAINE RP</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body {
+body {
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(45deg, #046f74dc, #000000d2);
     margin: 0;
     padding: 0;
     color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+.container {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 80%;
+    margin: 50px auto;
+}
+
+footer {
+    width: 100%; 
+    max-width: 100%; 
+    text-align: center;
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    position: relative; 
+    bottom: 0;
+    left: 0;
 }
 
 header {
@@ -22,15 +48,6 @@ header {
     font-size: 2.0em;
     box-shadow: 0 3px 6px rgba(0, 255, 234, 0.797);
     border-bottom: 5px solid #0b0909;
-}
-
-.container {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    width: 80%;
-    margin: 50px auto;
-    flex-wrap: wrap;
 }
 
 section {
@@ -140,24 +157,21 @@ button:hover {
     transform: scale(1.05);
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #3a2e1e;
-    background: linear-gradient(45deg, #000000, #302f2f);
-    font-size: 1.1em;
-    margin-top: 50px;
-}
-
 @media (max-width: 768px) {
     .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center; 
-        gap: 15px; 
-        width: 90%;  
-        padding: 0 5%; 
+        width: 100%;
+        padding: 0;
+    }
+
+    footer {
+        width: 90%; 
+        padding: 10px 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    body {
+        min-height: 100%;
     }
 
     section {
@@ -197,15 +211,13 @@ footer {
         font-size: 1.5em;
     }
 
-    footer {
-        font-size: 1em;
-    }
-
     .warning-text {
         font-size: 1em;
     }
-
 }
+
+
+
 
 .section-title {
     color: #f39c12;
@@ -260,62 +272,6 @@ footer {
 
 .vehicle-details img {
     max-width: 220px;
-}
-
-/* Стилі для автопарку */
-.vehicle-section {
-    background-color: #444;
-    padding: 30px; 
-    margin-top: 30px; 
-    border-radius: 10px; 
-}
-
-.vehicle-section h3 {
-    color: #f39c12;
-    font-size: 1.8em; 
-    margin-bottom: 15px;
-}
-
-.vehicle-info-window {
-    position: fixed;
-    top: 15%; 
-    left: 50px;
-    width: 450px;
-    background-color: #333;
-    border-radius: 12px; 
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); 
-    padding: 30px; 
-    z-index: 999;
-    display: none;
-    overflow-y: auto;
-    max-height: 600px; 
-}
-
-.vehicle-info-window.active {
-    display: block;
-}
-
-.vehicle-info-window .close-btn {
-    position: absolute;
-    top: -15px;
-    right: -70px; 
-    font-size: 50px;
-    background-color: transparent;
-    border: none;
-    color: #00ffcc;
-    cursor: pointer;
-}
-
-.vehicle-info-window .section-title {
-    color: #f39c12;
-    font-size: 1.8em; 
-    margin-top: 30px;
-}
-
-.vehicle-info-window .section-content {
-    font-size: 1.4em;
-    color: #fff;
-    margin-top: 15px;
 }
 .error {
     color: #ff4d4d;
@@ -386,16 +342,6 @@ header {
             </form>
             <div id="checkResult" class="result-container"></div>
         </section>
-        <section id="user-vehicles">
-            <h2>Твій Автопарк</h2>
-            <form id="userForm">
-                <input type="text" id="username" name="username" placeholder="Введіть свій username" required>
-                <input type="password" id="password" name="password" placeholder="Введіть свій пароль" required>
-                <button type="submit">ПЕРЕГЛЯНУТИ АВТОПАРК</button>
-            </form>
-            <div id="vehicleResult" class="result-container"></div>
-        </section>
-    </div>
 
 
     <div class="info-window" id="infoWindow">
@@ -404,10 +350,6 @@ header {
     </div>
 
 
-    <div class="vehicle-info-window" id="vehicleInfoWindow">
-        <button class="close-btn" id="closeVehicleInfoWindow">×</button>
-        <div id="vehicleInfoContent"></div>
-    </div>
 
     <script>
         const vehicleImages = { 
@@ -744,106 +686,17 @@ checkForm.addEventListener('submit', function(event) {
 
 });
 
-        closeInfoWindow.addEventListener('click', () => {
-    infoWindow.classList.remove('active'); 
-licenseNumberInput.addEventListener('input', () => {
-    checkResultDiv.innerHTML = ''; 
-});
-
-        });
 
 
-        const userForm = document.getElementById('userForm');
-        const usernameInput = document.getElementById('username');
-        const passwordInput = document.getElementById('password');
-        const vehicleResultDiv = document.getElementById('vehicleResult');
-        const vehicleInfoWindow = document.getElementById('vehicleInfoWindow');
-        const closeVehicleInfoWindow = document.getElementById('closeVehicleInfoWindow');
-        const vehicleInfoContent = document.getElementById('vehicleInfoContent');
-        
-
-        userForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    const username = usernameInput.value.trim();
-    const password = passwordInput.value.trim();
-
-
-    vehicleResultDiv.innerHTML = '';
-
-    if (username && password) {
-        const userVehicles = vehicles.filter(vehicle => vehicle.owner === username && vehicle.password === password);
-
-        if (userVehicles.length > 0) {
- 
-            vehicleResultDiv.innerHTML = '';
-
-     
-            const categorizedVehicles = {
-                "Dealership": [],
-                "Police": [],
-                "Fire department": [],
-                "Bus Company": [],
-                "Truck Company": []
-            };
-
-            userVehicles.forEach(vehicle => {
-                categorizedVehicles[vehicle.category].push(vehicle);
-            });
-
-        
-            vehicleInfoContent.innerHTML = '';
-            Object.keys(categorizedVehicles).forEach(category => {
-                if (categorizedVehicles[category].length > 0) {
-                    vehicleInfoContent.innerHTML += `<div class="vehicle-section">
-                        <h3 class="section-title">${category}</h3>
-                        <div class="vehicle-list">`;
-                    categorizedVehicles[category].forEach(vehicle => {
-                        const image = vehicleImages[vehicle.name] || 'https://example.com/default-image.jpg';
-                           vehicleInfoContent.innerHTML += `
-                        <div class="section-content">
-                        <h3>${vehicle.name}</h3>
-                       <img src="${image}" alt="${vehicle.name}">
-                       <p>Номерний знак: ${vehicle.licenseNumber}</p>
-                       <p>Категорія: <b>${vehicle.category}</b></p>
-                     </div>`;
-
-                    });
-                    vehicleInfoContent.innerHTML += `</div></div>`;
-                }
-            });
-
-            vehicleInfoWindow.classList.add('active');
-        } else {
-            vehicleResultDiv.innerHTML = `<p class="error">Невірний username або пароль!</p>`;
-        }
-    } else {
-        vehicleResultDiv.innerHTML = `<p class="error">Будь ласка, заповніть всі поля!</p>`;
-    }
-});
-
-
-[usernameInput, passwordInput].forEach(input => {
-    input.addEventListener('input', () => {
-        vehicleResultDiv.innerHTML = '';
-    });
-});
-
-
-closeVehicleInfoWindow.addEventListener('click', () => {
-    vehicleInfoWindow.classList.remove('active');
-    usernameInput.value = '';
-    passwordInput.value = '';
-    vehicleResultDiv.innerHTML = ''; 
-});
-
-        closeVehicleInfoWindow.addEventListener('click', () => {
-            vehicleInfoWindow.classList.remove('active');
-
-            
-        });
     </script>
-      <footer>
-        <p>&copy; 2025 Ukraine RP. Всі права захищені.</p>
+
+</div> 
+<footer>
+        <p>© <span id="currentYear"></span> Ukraine RP. Усі права захищено.</p>
     </footer>
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+    
 </body>
 </html>
